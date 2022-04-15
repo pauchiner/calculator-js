@@ -4,34 +4,35 @@
         <meta charset="utf-8">
         <title>Calculator</title>
         <link rel="stylesheet" href="index.css">
-        <script type="text/javascript" src="index.js"></script>
-
     </head>
     <body>
         <div class="calculator">
-            <div class="output">
-                <div id="previousValueText"></div>
-                <div id="currentValueText">0</div>
+            <div class="output-panel">
+                <button id="button-clear">C</button>
+                <div class="output">
+                    <div id="previousValueText"></div>
+                    <div id="currentValueText">0</div>
+                </div>
             </div>
             <div class="pad-grid">
                 <button class="button-number">9</button>
                 <button class="button-number">8</button>
                 <button class="button-number">7</button>
-                <button data-operation>/</button>
+                <button class="button-operator">/</button>
                 <button class="button-number">6</button>
                 <button class="button-number">5</button>
                 <button class="button-number">4</button>
-                <button data-operation>x</button>
+                <button class="button-operator">*</button>
                 <button class="button-number">3</button>
                 <button class="button-number">2</button>
                 <button class="button-number">1</button>
-                <button data-operation>-</button>
-                <button onclick="calculator.addNumber(3)">=</button>
+                <button class="button-operator">-</button>
+                <button class="button-number">.</button>
                 <button class="button-number">0</button>
-                <button class="button-number">,</button>
-                <button data-operation>+</button>
+                <button id="button-equals">=</button>
+                <button class="button-operator">+</button>
             </div>
         </div>
     </body>
-
+    <script type="text/javascript" src="index.js"></script>
 </html>
