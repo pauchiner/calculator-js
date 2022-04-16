@@ -12,26 +12,25 @@ let operationHasOperator = false;
 function clear() {
     previousOperandTextElement.innerText = "";
     currentOperandTextElement.innerText = "0";
+    document.getElementById('button-clear-svg').style = 'fill: #888;';
 }
 
 function addNumber(element) {
     if(currentOperandTextElement.innerText == "0") {
         currentOperandTextElement.innerText = "";
+        document.getElementById('button-clear-svg').style = 'fill: #ef260b;';
     }
     currentOperandTextElement.innerText += element.innerText;
+    element.selected = false;
 }
 
 function addOperator(element) {
-    if(currentOperandTextElement.innerText != "0" && !operationHasOperator) {
+    if(currentOperandTextElement.innerText != "0" && previousValueText.innerText == '' && !operationHasOperator) {
         var operation = currentOperandTextElement.innerText;
         operation += " " + element.innerText + " ";
         operationHasOperator = true;
         previousValueText.innerText = operation;
         currentOperandTextElement.innerText = 0;
-    }
-
-    if(!operationHasOperator) {
-        previousOperandTextElement.innerText += " " + element.innerText + " ";
     }
 
     if(operationHasOperator && currentOperandTextElement.innerText != "0") {

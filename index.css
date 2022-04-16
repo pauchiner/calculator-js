@@ -1,40 +1,56 @@
 * {
-    padding: 0;
     margin: 0;
+    padding: 0;
     border-style: none;
+    text-decoration: none;
     font-family: 'Montserrat', sans-serif;
     font-weight: 200;
     font-size: 25px;
 }
 
+html {min-width: 100%; min-height: 100%; display: grid;}
+
 body {
-    background-color: rgb(67, 67, 67);
-    padding: 70px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
+    background: linear-gradient(314deg, #7415eb, #eb5515);
+    background-size: 200% 200%;
+    animation: BackgroundAnim 23s ease infinite;
+    padding: 10px;
+
 }
 
 .calculator {
-    box-shadow: 7px 7px 30px 0px rgba(0, 0, 0, 0.6);
+    justify-content: center;
+    align-items: center;
+    display: grid;
+
 }
 
 .pad-grid {
+    box-shadow: 7px 7px 30px 0px rgba(0, 0, 0, 0.6);
     user-select: none;
 
     display: grid;
     grid-template-columns: repeat(4, 100px);
 }
 
-.pad-grid > button {
-    padding: 50px;
+ button {
+    padding: 50%;
     justify-content: center;
-    background-color: #fff;
+
+    color: #000;
+    background-color: rgba(255, 255, 255, 0.7);
 }
 
 .pad-grid > button:hover {
-    background-color: #999;
-    transition: background-color 0.1s;
+    box-shadow: 5px 5px 0px, #000;
+    background-color: rgba(222, 222, 222, 1);
+    transform: scale(1.1);
+    transition: all 0.1s;
+}
+
+.button-operator {
+    background:rgba(255, 255, 255, 0.2);
+    backdrop-filter:  saturate(125%);
 }
 
 .output {
@@ -48,18 +64,29 @@ body {
 .output-panel {
     display: inline-flex;
     flex-grow: 3;
-
+    
     width: 400px;
     height: 120px;
-    background-color: #222;
+    backdrop-filter: blur(20px) saturate(125%);
+    background-color: rgba(0, 0, 0, 0.7);
+
+    box-shadow: 7px 7px 30px 0px rgba(0, 0, 0, 0.6);
 }
 
 #button-clear {
     
-    padding: 10px;
+    padding: 20px;
     background-color: rgba(0, 0, 0, 0);
-    color: rgb(255, 50, 50);
-    font-size: 50px;
+}
+
+#button-clear > svg {
+    padding-top: 20px;
+    width: 50px;
+}
+
+#button-clear > svg:hover {
+    animation-duration: 0.3s;
+    animation-name: TrashAnim;
 }
 
 #previousValueText {
@@ -78,3 +105,84 @@ body {
     color: #fff;
     background-color: rgba(0, 0, 0, 0);
 }
+
+.footer {
+    justify-content: space-around;
+    display: flex;
+    
+    padding-top: 30px;
+    margin-left: 90px;
+    margin-right: 90px;
+
+}
+
+/*responsive desing*/
+
+
+@media only screen and (min-height: 540px) {
+    .pad-grid > button {
+        padding: 35%;
+        transition: padding 0.1s;
+    }
+}
+
+@media only screen and (min-height: 630px) {
+    .pad-grid > button {
+        padding: 50%;
+        transition: padding 0.1s;
+    }
+
+    body {
+        padding: 10px;
+        transition: padding 0.1s;
+    }
+}
+
+@media only screen and (min-height: 700px) {
+    body {
+        padding: 20px;
+        transition: padding 0.1s;
+    }
+}
+
+@media only screen and (min-height: 770px) {
+    body {
+        padding: 40px;
+        transition: padding 0.1s;
+    }
+}
+
+
+
+@media only screen and (min-width: 0) {
+    body {
+        padding: 0;
+        transition: padding 0.1s;
+    }
+    #button-clear {
+        padding-left: 30px;
+    }
+}
+
+@media only screen and (min-width: 440px) {
+    body {
+        padding: 10px;
+        transition: padding 0.1s;
+    }
+    #button-clear {
+        padding-left: 20px;
+    }
+}
+
+/*Animations*/
+@keyframes BackgroundAnim {
+    0%{background-position:67% 0%}
+    50%{background-position:34% 100%}
+    100%{background-position:67% 0%}
+}
+
+@keyframes TrashAnim {
+    0%, 100% { transform: translateX(0); }
+    30%, 70% {transform: translateX(-7px);} 
+    50%  {transform: translateX(7px);} 
+ } 
