@@ -1,188 +1,183 @@
+/*Predefinied elements*/
+
 * {
-    margin: 0;
-    padding: 0;
-    border-style: none;
-    text-decoration: none;
-    font-family: 'Montserrat', sans-serif;
-    font-weight: 200;
-    font-size: 25px;
+  border: none;
+  font: 200 25px 'Montserrat';
+  margin: 0;
+  padding: 0;
+  text-decoration: none;
+  user-select: none;
 }
 
-html {min-width: 100%; min-height: 100%; display: grid;}
+html {
+  align-items: center;
+  display: grid;
+  min-width: 100%;
+  min-height: 100%;
+}
 
 body {
-    background: linear-gradient(314deg, #7415eb, #eb5515);
-    background-size: 200% 200%;
-    animation: BackgroundAnim 23s ease infinite;
-    padding: 10px;
+  animation: background-anim 23s ease infinite;
+  background-size: 200% 200%;
+  background: linear-gradient(314deg, #7415eb, #eb5515);
+  padding: 10px;
+}
 
+button {
+  background-color: rgba(255, 255, 255, 0.7);
+  color: #000;
+  justify-content: center;
+  font-weight: 500;
+  padding: 50%;
+}
+
+footer {
+  bottom: 0;
+  display: flex;
+  justify-content: space-around;
+  padding-top: 30px;
+  position: relative;
+  margin: 0 90px 0 90px;
+}
+
+h2:hover {
+  transition: all 0.4s ease-in-out;
+}
+
+/* Classes */
+
+.button-operator {
+  backdrop-filter:  saturate(125%);
+  background:rgba(255, 255, 255, 0.2);
+  font-weight: 200;
 }
 
 .calculator {
-    justify-content: center;
-    align-items: center;
-    display: grid;
-
+  display: grid;
+  justify-content: center;
 }
 
-.pad-grid {
-    box-shadow: 7px 7px 30px 0px rgba(0, 0, 0, 0.6);
-    user-select: none;
-
-    display: grid;
-    grid-template-columns: repeat(4, 100px);
+.footer-icons {
+  fill: rgba(0, 0, 0, 0.6);
+  transition: fill 0.2s ease-in-out;
 }
 
- button {
-    padding: 50%;
-    justify-content: center;
-
-    color: #000;
-    background-color: rgba(255, 255, 255, 0.7);
-}
-
-.pad-grid > button:hover {
-    box-shadow: 5px 5px 0px, #000;
-    background-color: rgba(222, 222, 222, 1);
-    transform: scale(1.1);
-    transition: all 0.1s;
-}
-
-.button-operator {
-    background:rgba(255, 255, 255, 0.2);
-    backdrop-filter:  saturate(125%);
+.footer-icons :hover {
+  fill: white;
+  transition: all 0.2s ease-in-out;
 }
 
 .output {
-    display: flex;
-    align-items: center;
-    justify-content: right;
-    width: 100%;
-    
+  align-items: flex-end;
+  display: flex;
+  justify-content: right;
+  width: 100%;
 }
 
 .output-panel {
-    display: inline-flex;
-    flex-grow: 3;
-    
-    width: 400px;
-    height: 120px;
-    backdrop-filter: blur(20px) saturate(125%);
-    background-color: rgba(0, 0, 0, 0.7);
-
-    box-shadow: 7px 7px 30px 0px rgba(0, 0, 0, 0.6);
+  backdrop-filter: blur(20px) saturate(125%);
+  background-color: rgba(0, 0, 0, 0.7);
+  box-shadow: 7px 7px 30px 0px rgba(0, 0, 0, 0.6);
+  display: inline-flex;
+  flex-grow: 3;
+  height: 120px;
+  width: 400px;
 }
 
+.pad-grid {
+  box-shadow: 7px 7px 30px 0px rgba(0, 0, 0, 0.6);
+  display: grid;
+  grid-template-columns: repeat(4, 100px);
+}
+
+.pad-grid > button:hover {
+  background-color: rgba(222, 222, 222, 1);
+  box-shadow: 5px 5px 15px rgba(0, 0, 0, 0.3);
+  transform: scale(1.1);
+  transition: all 0.1s;
+}
+
+/* Identifiers */
+
 #button-clear {
-    
-    padding: 20px;
-    background-color: rgba(0, 0, 0, 0);
+  background-color: rgba(0, 0, 0, 0);
+  padding: 20px;
 }
 
 #button-clear > svg {
-    padding-top: 20px;
-    width: 50px;
-}
-
-#button-clear > svg:hover {
-    animation-duration: 0.3s;
-    animation-name: TrashAnim;
-}
-
-#previousValueText {
-    font-size: 27px;
-    padding-bottom: 60px;
-    
-    color: #888;
-    background-color: rgba(0, 0, 0, 0);
+  padding-top: 20px;
+  width: 50px;
 }
 
 #currentValueText {
-    font-size: 55px;
-    padding-right: 20px;
-    padding-top: 20px;
-
-    color: #fff;
-    background-color: rgba(0, 0, 0, 0);
+  background-color: rgba(0, 0, 0, 0);
+  color: #fff;
+  font-size: 55px;
+  font-weight: 500;
+  padding-bottom: 20px;
+  padding-right: 20px;
+  user-select: text;
 }
 
-.footer {
-    justify-content: space-around;
-    display: flex;
-    
-    padding-top: 30px;
-    margin-left: 90px;
-    margin-right: 90px;
-
+#previousValueText {
+  background-color: rgba(0, 0, 0, 0);
+  color: #888;
+  font-size: 27px;
+  font-weight: 500;
+  position: absolute;
+  top: 15px;
+  right: 60px;
 }
 
-/*responsive desing*/
+/*Responsive desing*/
 
-
-@media only screen and (min-height: 540px) {
-    .pad-grid > button {
-        padding: 35%;
-        transition: padding 0.1s;
-    }
-}
-
-@media only screen and (min-height: 630px) {
-    .pad-grid > button {
-        padding: 50%;
-        transition: padding 0.1s;
-    }
-
-    body {
-        padding: 10px;
-        transition: padding 0.1s;
-    }
+@media only screen and (min-height: 0px) {
+  .pad-grid > button {
+    padding: 35%;
+    transition: padding 0.1s;
+  }
 }
 
 @media only screen and (min-height: 700px) {
-    body {
-        padding: 20px;
-        transition: padding 0.1s;
-    }
-}
+  body {
+    padding: 20px;
+    transition: padding 0.1s;
+  }
 
-@media only screen and (min-height: 770px) {
-    body {
-        padding: 40px;
-        transition: padding 0.1s;
-    }
-}
-
-
-
-@media only screen and (min-width: 0) {
-    body {
-        padding: 0;
-        transition: padding 0.1s;
-    }
-    #button-clear {
-        padding-left: 30px;
-    }
-}
-
-@media only screen and (min-width: 440px) {
-    body {
-        padding: 10px;
-        transition: padding 0.1s;
-    }
-    #button-clear {
-        padding-left: 20px;
-    }
+  .pad-grid > button {
+    padding: 50%;
+    transition: padding 0.1s;
+  }
 }
 
 /*Animations*/
-@keyframes BackgroundAnim {
-    0%{background-position:67% 0%}
-    50%{background-position:34% 100%}
-    100%{background-position:67% 0%}
+
+@keyframes background-anim {
+  0% { background-position:67% 0% }
+  50% { background-position:34% 100% }
+  100% { background-position:67% 0% }
 }
 
-@keyframes TrashAnim {
-    0%, 100% { transform: translateX(0); }
-    30%, 70% {transform: translateX(-7px);} 
-    50%  {transform: translateX(7px);} 
- } 
+@keyframes empty-trash-animation {
+  0% { fill: #ef260b; transform: translateX(0); }
+  30%, 70% { transform: translateX(-7px); }
+  50%  { transform: translateX(7px); }
+  100% { fill: #888; transform: translateX(0); }
+}
+
+@keyframes hide-previous-value-animation {
+    0% { transform: translateY(0px); opacity: 100; }
+    100% { transform: translateY(7px); opacity: 0; }
+}
+
+@keyframes show-previous-value-animation {
+  0% { transform: translateY(7px); opacity: 0; }
+  100% { transform: translateY(0px); opacity: 100; }
+}
+
+@keyframes trash-animation {
+  0% { fill: #888; }
+  30% { transform: translateY(-3px); }
+  50%  { transform: translateY(3px); }
+  100% { fill: #ef260b; }
+}
